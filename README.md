@@ -1,6 +1,6 @@
 # Custom listenable [![npm](https://img.shields.io/npm/v/custom-listenable.svg)](https://www.npmjs.com/package/custom-listenable) ![npm type definitions](https://img.shields.io/npm/types/custom-listenable.svg)
 
-Create custom listenable with addListener and removeListener methods.
+Create custom listenable with `addListener` and `removeListener` methods.
 
 ## Installation
 
