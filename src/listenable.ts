@@ -3,10 +3,8 @@ export type ListenerOptions = {
 	// @TODO: abortable
 }
 
-export const listenable = <
-	CallbackParameters extends Record<string, unknown>,
->() => {
-	type Callback = (parameters: CallbackParameters) => void
+export const listenable = <CallbackData = unknown>() => {
+	type Callback = (data: CallbackData) => void
 	type Listener = {
 		callback: Callback
 		options: ListenerOptions
@@ -33,9 +31,9 @@ export const listenable = <
 		}
 	}
 
-	const emit = (parameters: CallbackParameters) => {
+	const emit = (data: CallbackData) => {
 		listeners.forEach((listener) => {
-			listener.callback(parameters)
+			listener.callback(data)
 			if (listener.options.once) {
 				removeListener(listener.callback)
 			}
