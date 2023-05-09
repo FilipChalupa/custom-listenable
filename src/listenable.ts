@@ -1,5 +1,7 @@
-export const listenable = <CallbackParameters extends unknown[] = []>() => {
-	type Callback = (...parameters: CallbackParameters) => void
+export const listenable = <
+	CallbackParameters extends Record<string, unknown>,
+>() => {
+	type Callback = (parameters: CallbackParameters) => void
 	let listeners: Callback[] = []
 
 	const addListener = (callback: Callback) => {
@@ -9,9 +11,9 @@ export const listenable = <CallbackParameters extends unknown[] = []>() => {
 		listeners = listeners.filter((listener) => listener !== callback)
 	}
 
-	const emit = (...parameters: CallbackParameters) => {
+	const emit = (parameters: CallbackParameters) => {
 		listeners.forEach((listener) => {
-			listener(...parameters)
+			listener(parameters)
 		})
 	}
 

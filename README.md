@@ -45,5 +45,5 @@ setInterval(() => {
 You can specify type of data that will be emitted.
 
 ```ts
-const myListenable = listenable<[{ random: number; date: Date }]>()
+const myListenable = listenable<{ random: number; date: Date }>()
 ```
