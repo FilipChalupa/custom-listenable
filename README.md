@@ -38,6 +38,15 @@ setInterval(() => {
 	}
 	myListenable.emit(data)
 }, 1000)
+
+// Listen once
+myListenable.addListener(
+	(data) => {
+		console.log('Listener called once')
+		console.log(data)
+	},
+	{ once: true },
+)
 ```
 
 ### TypeScript
