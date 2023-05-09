@@ -7,7 +7,7 @@
 	"types": "./dist/index.d.ts",
 	"scripts": {
 		"start": "rollup --configPlugin typescript -c -w",
-		"dev": "concurrently npm:start npm:storybook",
+		"dev": "npm start",
 		"build": "rollup --configPlugin typescript -c",
 		"prepare": "npm run build",
 		"lint": "eslint src"
@@ -35,7 +35,6 @@
 		"@typescript-eslint/eslint-plugin": "^5.52.0",
 		"@typescript-eslint/parser": "^5.52.0",
 		"babel-loader": "^9.1.0",
-		"concurrently": "^7.6.0",
 		"eslint": "^8.34.0",
 		"prettier": "^2.7.1",
 		"rollup": "^3.2.5",
