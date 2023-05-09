@@ -2,13 +2,18 @@ export const listenable = <
 	CallbackParameters extends Record<string, unknown>,
 >() => {
 	type Callback = (parameters: CallbackParameters) => void
-	let listeners: Callback[] = []
+	const listeners: Callback[] = []
 
 	const addListener = (callback: Callback) => {
+		removeListener(callback) // Prevent duplicate listeners
 		listeners.push(callback)
 	}
+
 	const removeListener = (callback: Callback) => {
-		listeners = listeners.filter((listener) => listener !== callback)
+		const listenerIndex = listeners.indexOf(callback)
+		if (listenerIndex >= 0) {
+			listeners.splice(listenerIndex, 1)
+		}
 	}
 
 	const emit = (parameters: CallbackParameters) => {
